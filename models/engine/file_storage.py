@@ -5,6 +5,7 @@ and deserializes JSON file to instances."""
 from json import dump, load
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """serializes instances to a JSON file
     and deserializes JSON file to instances"""
@@ -35,7 +36,7 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
                 jo = load(f)
-            for k,v in jo.items():
+            for k, v in jo.items():
                 self.__objects[k] = eval(v["__class__"])(**v)
         except:
             pass
