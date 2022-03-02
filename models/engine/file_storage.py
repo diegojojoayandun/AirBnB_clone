@@ -2,25 +2,25 @@
 """ file_storage module serializes instances to a JSON file
 and deserializes JSON file to instances."""
 
-
-from json import dump, loads
+from json import dump, load
 from os import path
-
+from models.base_model import BaseModel
 
 class FileStorage:
     """serializes instances to a JSON file
     and deserializes JSON file to instances"""
 
-    __file_path = "file.json"  # string - path to the JSON file
-    __objects = {}  # dictionary - empty but will store objs by <class name>.id
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
         """returns the dictionary __objects"""
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
-        FileStorage.__objects[obj.__class__.__name__ + "." + obj.id] = obj
+        k = obj.__class__.__name__ + "." + str(obj.id)
+        self.__objects[k] = obj
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
@@ -34,16 +34,9 @@ class FileStorage:
         """deserializes the JSON file to __objects if the JSON file exists
         otherwise, do nothing.
         If the file doesn’t exist, no exception should be raised)"""
-
-        if not path.exists(FileStorage.__file_path):
-            return
-
-        with open(FileStorage.__file_path, "r", encoding="UTF-8") as f:
-            content_file = f.read()  # In this case, return string of dict.
-            obj_Json = loads(content_file)  # Result = dict
-
-            for key in obj_Json:
-                dict_value = obj_Json[key]
-                name_class = dict_value["__class__"]
-                new_obj = eval(name_class)(**dict_value)
-                FileStorage.__objects[key] = new_obj
+        if (path.isfile(self.__file_path)):
+            with open(self.__file_path, 'r', encoding="utf-8") as fname:
+                l_json = load(fname)
+                for k, v in l_json.items():
+                    self.__objects[k] = eval(
+                        v['__class__'])(**v)
