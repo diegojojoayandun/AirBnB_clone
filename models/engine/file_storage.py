@@ -4,10 +4,10 @@ and deserializes JSON file to instances."""
 
 from json import dump, load
 from models.base_model import BaseModel
-from models.users import Users
+from models.user import User
 
 
-classes = {"BaseModel": BaseModel, "Users": Users}
+classes = {"BaseModel": BaseModel, "user": User}
 
 
 class FileStorage:
