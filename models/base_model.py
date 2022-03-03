@@ -6,7 +6,7 @@ from uuid import uuid4
 from datetime import datetime
 import models
 
-time_format = "%Y-%m-%dT%H:%M:%S.%f"  # string object in ISO format
+time_format = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
