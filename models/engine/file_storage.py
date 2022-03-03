@@ -19,14 +19,17 @@ class FileStorage:
 
     def all(self):
         """returns the dictionary __objects."""
+
         return self.__objects
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id."""
+
         self.__objects[obj.__class__.__name__ + "." + str(obj.id)] = obj
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)."""
+
         json_obj = {}
         for k in self.__objects:
             json_obj[k] = self.__objects[k].to_dict()
