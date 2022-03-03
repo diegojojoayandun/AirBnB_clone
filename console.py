@@ -104,7 +104,33 @@ class HBNBCommand(cmd.Cmd):
         """Updates an instance based on the class name and id
         by adding or updating attribute and save the change
         into the JSON file."""
-        pass
+
+        line_split = line.split()
+        if len(line_split) == 0:
+            print('** class name missing **')
+            return
+        elif line_split[0] not in classes:
+            print("** class doesn't exist **")
+            return
+        elif len(line_split) == 1:
+            print('** instance id missing **')
+            return
+        else:
+            k = line_split[0] + '.' + line_split[1]
+            if k in models.storage.all():
+                if len(line_split) > 2:
+                    if len(line_split) == 3:
+                        print('** value missing **')
+                    else:
+                        setattr(
+                            models.storage.all()[k],
+                            line_split[2],
+                            line_split[3][1:-1])
+                        models.storage.all()[k].save()
+                else:
+                    print('** attribute name missing **')
+            else:
+                print('** no instance found **')
 
 
 if __name__ == '__main__':
