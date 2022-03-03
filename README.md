@@ -1,6 +1,6 @@
 # 0x00. AirBnB clone - The console
 
-![alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20220228%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220228T071425Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=eea69c21402bcc63dfb86b79f5af5b3609de17338942ede06aeceeb9c137cfc4)
+![alt text](https://user-images.githubusercontent.com/33245729/41383392-58f3dbb8-6f25-11e8-8215-d7c3832c0ae8.png)
 
 ## Description
 
