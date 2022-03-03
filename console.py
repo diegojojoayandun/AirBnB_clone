@@ -13,13 +13,14 @@ from models.place import Place
 from models.review import Review
 
 
-classes = {"BaseModel": BaseModel, "user": User, "state": State, "city": City, "amenity": Amenity, "place": Place, "review": Review}
+classes = {"BaseModel": BaseModel, "User": User, "State": State,
+           "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
 
 
 class HBNBCommand(cmd.Cmd):
     """ command interpreter - using cmd class."""
 
-    prompt = "\033[31m(hbnb)\033[0m "  # command line prompt eq to hbnb
+    prompt = "\033[31m(hbnb)\033[0m "
     pass
 
     def do_EOF(self, line):

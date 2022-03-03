@@ -7,3 +7,8 @@ class State(BaseModel):
     """class State that inherits from BaseModel."""
 
     name = ""
+
+    def __init__(self, *args, **kwargs):
+        """User Class constructor"""
+
+        super().__init__(self, *args, **kwargs)
