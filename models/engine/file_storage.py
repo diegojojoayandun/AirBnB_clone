@@ -4,10 +4,15 @@ and deserializes JSON file to instances."""
 
 from json import dump, load
 from models.base_model import BaseModel
-from models.users import Users
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
-classes = {"BaseModel": BaseModel, "Users": Users}
+classes = {"BaseModel": BaseModel, "user": User, "state": State, "city": City, "amenity": Amenity, "place": Place, "review": Review}
 
 
 class FileStorage:
