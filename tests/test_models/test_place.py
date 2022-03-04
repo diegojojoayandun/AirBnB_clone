@@ -54,7 +54,7 @@ class PlaceTest(unittest.TestCase):
         self.assertIsInstance(self.pl.updated_at, datetime.datetime)
 
     def test_inheritance(self):
-        """Verify if amenity is subclass from BaseModel"""
+        """Verify if place is subclass from BaseModel"""
 
         self.assertIsInstance(self.pl, Place)
 
