@@ -5,6 +5,7 @@ import unittest
 from models.place import Place
 import datetime
 
+
 class PlaceTest(unittest.TestCase):
     """Suite of console test"""
 
@@ -57,6 +58,7 @@ class PlaceTest(unittest.TestCase):
         """Verify if place is subclass from BaseModel"""
 
         self.assertIsInstance(self.pl, Place)
+
 
 if __name__ == '__main__':
     unittest.main()

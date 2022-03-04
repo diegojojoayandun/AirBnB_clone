@@ -41,5 +41,6 @@ class BaseModelTest(unittest.TestCase):
         self.assertEqual(first_dic['created_at'], second_dic['created_at'])
         self.assertNotEqual(first_dic['updated_at'], second_dic['updated_at'])
 
+
 if __name__ == '__main__':
     unittest.main()

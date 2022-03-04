@@ -5,6 +5,7 @@ import datetime
 import unittest
 from models.review import Review
 
+
 class ReviewTest(unittest.TestCase):
     """Suite of console test"""
 
@@ -41,6 +42,7 @@ class ReviewTest(unittest.TestCase):
         """Verify if review is subclass from BaseModel"""
 
         self.assertIsInstance(self.rw, Review)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -5,9 +5,10 @@ import unittest
 from models.amenity import Amenity
 import datetime
 
+
 class AmenityTest(unittest.TestCase):
     """Suite of console test"""
-    
+
     ame = Amenity()
 
     def test_ClassExist(self):
@@ -36,6 +37,7 @@ class AmenityTest(unittest.TestCase):
         """Verify if amenity is subclass from BaseModel"""
 
         self.assertIsInstance(self.ame, Amenity)
-            
+
+
 if __name__ == '__main__':
     unittest.main()

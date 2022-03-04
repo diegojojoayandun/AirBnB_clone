@@ -5,6 +5,7 @@ import unittest
 from models.state import State
 import datetime
 
+
 class StateTest(unittest.TestCase):
     """Suite of console test"""
 
@@ -37,6 +38,7 @@ class StateTest(unittest.TestCase):
         """Verify if state is subclass from BaseModel"""
 
         self.assertIsInstance(self.st, State)
+
 
 if __name__ == '__main__':
     unittest.main()

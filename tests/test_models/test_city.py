@@ -41,5 +41,6 @@ class CityTest(unittest.TestCase):
 
         self.assertTrue(self.cy, City)
 
+
 if __name__ == '__main__':
     unittest.main()
