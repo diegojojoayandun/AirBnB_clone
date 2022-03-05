@@ -1,12 +1,19 @@
 # 0x00. AirBnB clone - The console
 
+---
+
 ![alt text](https://user-images.githubusercontent.com/33245729/41383392-58f3dbb8-6f25-11e8-8215-d7c3832c0ae8.png)
 
 ## Description
 
+---
+
 Team Project as part of the second trimester cicle of foundations at Holberton School, the AirBnB project approachs to the first real web developer project, the console is the first step towards building our first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration.
 
 ## Resources
+
+---
+
 ### Read or watch:
 
 * [Python abstract classes](https://blog.teclado.com/python-abc-abstract-base-classes/)
@@ -19,6 +26,8 @@ Team Project as part of the second trimester cicle of foundations at Holberton S
 * [Python test cheatsheet](https://www.pythonsheets.com/notes/python-tests.html)
 
 # More Info
+
+---
 
 ## Execution
 
@@ -61,7 +70,17 @@ EOF  help  quit
 $
 ```
 
+##Usage
+
+---
+
+command | Example
+---|---
+[Run the console]|./console.py
+
 ## Authors
+
+---
 
 [Cristian Sánchez](https://github.com/cristaker)
 
