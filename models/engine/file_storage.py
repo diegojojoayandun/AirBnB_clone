@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ file_storage module serializes instances to a JSON file
-and deserializes JSON file to instances."""
+and deserializes JSON file to instances.
+"""
 
 from json import dump, load
 from os import path
