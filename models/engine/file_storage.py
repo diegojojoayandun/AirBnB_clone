@@ -3,6 +3,7 @@
 and deserializes JSON file to instances."""
 
 from json import dump, load
+from os import path
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -45,8 +46,6 @@ class FileStorage:
     def reload(self):
         """deserializes the JSON file to __objects if the JSON file exists
         otherwise, do nothing. If file doesn’t exist, no exception raised."""
-
-        from os import path
 
         if not path.exists(FileStorage.__file_path):
             return
