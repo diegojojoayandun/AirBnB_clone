@@ -68,8 +68,9 @@ $
 
 ## Usage
 
+The console works both in interactive mode and non-interactive mode, much like a Unix shell. It prints a prompt (hbnb) and waits for the user for input.
 
-command | Example
+Command | Example
 ---|---
 Run the console | ./console.py
 Quit the console | (hbnb) quit
@@ -79,6 +80,14 @@ Show an object | (hbnb) show (class)(id)
 Destroy an object | (hbnb) destoy (class) (id)
 Show all objects, or all instances of a class | (hbnb) all or (hbnb) all (class)
 Update an attribute of an object | (hbnb) update (class) (id) (attribute name) (attribute value)
+
+## Models
+
+All classes used in this project
+
+File | Description | Attributes
+---|---|---
+[base_model.py](/models/base_model.py) | BaseModel for all classes | id, created_at, updated_at
 
 
 ## Authors
