@@ -101,7 +101,6 @@ class HBNBCommand(cmd.Cmd):
                     if type(obj).__name__ == line_split[0]:
                         new_dict.append(str(obj))
                 print(new_dict)
-                n = obj_class
         else:
             for obj_class, obj in models.storage.all().items():
                 new_dict.append(str(obj))
