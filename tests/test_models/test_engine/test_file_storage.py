@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """Unittest for FileStorage"""
+
 import unittest
+import os
+import pycodestyle
 import models
 from models.engine.file_storage import FileStorage
 from models.engine import file_storage
 from models.base_model import BaseModel
-import os
-import pycodestyle
+
 
 FileStorage = file_storage.FileStorage
 
