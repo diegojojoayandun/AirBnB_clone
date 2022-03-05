@@ -21,6 +21,7 @@ class HBNBCommand(cmd.Cmd):
     """ command interpreter - using cmd class."""
 
     prompt = "\033[31m(hbnb)\033[0m "
+    pass
 
     def do_EOF(self, line):
         """Ctrl + D command, Exit the program."""
@@ -107,7 +108,9 @@ class HBNBCommand(cmd.Cmd):
             print(new_dict)
 
     def do_update(self, line):
-        """Updates an instance."""
+        """Updates an instance based on the class name and id
+        by adding or updating attribute and save the change
+        into the JSON file."""
 
         line_split = line.split()
         if len(line_split) == 0:
