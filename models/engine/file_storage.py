@@ -13,8 +13,13 @@ from models.place import Place
 from models.review import Review
 
 
-classes = {"BaseModel": BaseModel, "User": User, "State": State,
-           "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
+classes = {"BaseModel": BaseModel,
+           "User": User, "State": State,
+           "City": City,
+           "Amenity": Amenity,
+           "Place": Place,
+           "Review": Review
+           }
 
 
 class FileStorage:
@@ -25,17 +30,20 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        """returns the dictionary __objects."""
+        """returns the dictionary __objects.
+        Arguments: None"""
 
         return self.__objects
 
     def new(self, obj):
-        """sets in __objects the obj with key <obj class name>.id."""
+        """sets in __objects the obj with
+        key <obj class name>.id."""
 
         self.__objects[obj.__class__.__name__ + "." + str(obj.id)] = obj
 
     def save(self):
-        """serializes __objects to the JSON file (path: __file_path)."""
+        """serializes __objects to the
+        JSON file (path: __file_path)."""
 
         json_obj = {}
         for k in self.__objects:
@@ -50,7 +58,6 @@ class FileStorage:
         if not path.exists(FileStorage.__file_path):
             return
         with open(self.__file_path, 'r', encoding='utf-8') as f:
-            json_obj = load(f)
-            for k in json_obj:
-                self.__objects[k] = classes[json_obj[k][
-                                    '__class__']](**json_obj[k])
+            j = load(f)
+            for k in j:
+                self.__objects[k] = classes[j[k]['__class__']](**j[k])
