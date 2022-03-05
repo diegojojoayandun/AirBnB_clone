@@ -63,3 +63,4 @@ class FileStorage:
             j = load(f)
             for k in j:
                 self.__objects[k] = classes[j[k]['__class__']](**j[k])
+
