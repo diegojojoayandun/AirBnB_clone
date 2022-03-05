@@ -73,6 +73,7 @@ command | Example
 ---|---
 Run the console | ./console.py
 Quit the console | (hbnb) quit
+Display a help for a command | (hbnb) help <command>
 
 ## Authors
 
