@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""base model class module
+"""base model class module.
 """
 
 
 from uuid import uuid4
 from datetime import datetime
 import models
+
 
 time_format = "%Y-%m-%dT%H:%M:%S.%f"
 
@@ -16,6 +17,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """class constructor."""
 
+        from  models import storage
         if kwargs:
             for (k, v) in kwargs.items():
                 if k == "created_at" or k == "updated_at":
@@ -26,7 +28,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            storage.new(self)
 
     def __str__(self):
         """string representation of an instance."""
@@ -35,11 +37,12 @@ class BaseModel:
             format(type(self).__name__, self.id, self.__dict__)
 
     def save(self):
+        from  models import storage
         """ updates the public instance attribute updated_at
         with the current datetime."""
 
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values
