@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""base model class module"""
+"""base model class module
+"""
 
 
 from uuid import uuid4

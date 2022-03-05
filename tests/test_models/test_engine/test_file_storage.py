@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Unittest for FileStorage'''
+"""Unittest for FileStorage"""
 import unittest
 import models
 from models.engine.file_storage import FileStorage
@@ -12,16 +12,16 @@ FileStorage = file_storage.FileStorage
 
 
 class Test_FileStorage(unittest.TestCase):
-    '''unitest - Test FileStorage class'''
+    """unitest - Test FileStorage class"""
 
     @classmethod
     def setUpClass(cls):
-        '''set up before every test method'''
+        """set up before every test method"""
         cls.storage = FileStorage()
 
     @classmethod
     def teardown(cls):
-        '''remove test instances'''
+        """Remove test instances"""
         del cls.storage
         try:
             os.remove("file.json")
@@ -34,7 +34,7 @@ class Test_FileStorage(unittest.TestCase):
         self.assertTrue(type(self.storage._FileStorage__file_path) is str)
 
     def test_pep8_test_style(self):
-        '''Pep8 style test'''
+        """Pep8 style test"""
         pep8_codstyle = pycodestyle.StyleGuide(quiet=True)
         res = pep8_codstyle.check_files(['models/engine/file_storage.py'])
         self.assertEqual(res.total_errors, 0, "Fix Style")
@@ -54,17 +54,20 @@ class Test_FileStorage(unittest.TestCase):
                         "State class needs a docstring")
 
     def test_all(self):
+        """Test method All"""
         s_dict = self.storage.all()
         self.assertIsInstance(s_dict, dict)
         self.assertIs(s_dict, self.storage._FileStorage__objects)
 
     def test_new(self):
+        """test method new"""
         s_dict = self.storage.all()
         bas = BaseModel()
         kk = "{}.{}".format(type(bas).__name__, bas.id)
         self.assertTrue(kk in s_dict.keys())
 
     def test_save(self):
+        """test method save"""
         self.assertIsNotNone(FileStorage.save)
         self.storage.save()
         with open("file.json", 'r') as reader:
@@ -84,6 +87,7 @@ class Test_FileStorage(unittest.TestCase):
         self.assertTrue(os.path.exists("file.json"))
 
     def test_reload(self):
+        """test method reload"""
         self.assertIsNotNone(FileStorage.reload)
         try:
             os.remove("file.json")
