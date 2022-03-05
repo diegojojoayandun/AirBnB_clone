@@ -70,7 +70,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
 
     def do_destroy(self, line):
-        """Deletes an instance."""
+        """Deletes an instance based on the class name and id
+        and save the change into the JSON file."""
 
         line_split = line.split()
         if line == "" or line is None:
