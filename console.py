@@ -21,8 +21,7 @@ class HBNBCommand(cmd.Cmd):
     """ command interpreter -
     using cmd class."""
 
-    prompt = "\033[31m(hbnb)\033[0m "
-    pass
+    prompt = "(hbnb) "
 
     def do_EOF(self, line):
         """Ctrl + D command, Exit the program."""
