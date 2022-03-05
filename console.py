@@ -20,14 +20,14 @@ classes = {"BaseModel": BaseModel, "User": User, "State": State,
 class HBNBCommand(cmd.Cmd):
     """ command interpreter - using cmd class."""
 
-    prompt = "(hbnb) "
+    prompt = "\033[31m(hbnb)\033[0m "
 
-    def do_EOF(self, line):
+    def do_EOF(self):
         """Ctrl + D command, Exit the program."""
         print()
         return True
 
-    def do_quit(self, line):
+    def do_quit(self):
         """Quit Command to Exit the program."""
         return True
 
@@ -101,15 +101,14 @@ class HBNBCommand(cmd.Cmd):
                     if type(obj).__name__ == line_split[0]:
                         new_dict.append(str(obj))
                 print(new_dict)
+                n = obj_class
         else:
             for obj_class, obj in models.storage.all().items():
                 new_dict.append(str(obj))
             print(new_dict)
 
     def do_update(self, line):
-        """Updates an instance based on the class name and id
-        by adding or updating attribute and save the change
-        into the JSON file."""
+        """Updates an instance."""
 
         line_split = line.split()
         if len(line_split) == 0:
