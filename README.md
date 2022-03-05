@@ -88,6 +88,12 @@ All classes used in this project
 File | Description | Attributes
 ---|---|---
 [base_model.py](/models/base_model.py) | BaseModel for all classes | id, created_at, updated_at
+[user.py](/models/user.py) | User class for the future user information | password, first_name, last_name
+[amenity.py](/models/amenity.py) | Amenity class for the future amenity information | name
+[city.py](/models/city.py) | City class for future location information | name, state_id
+[state.py](/models/state.py) | State class for future accomodation information | name
+[place.py](/models/place.py) | Place class for future location information | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids
+[review.py](/models/review.py) | Review class for future user/host review information | place_id, user_id, text
 
 
 ## Authors
