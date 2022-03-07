@@ -1,46 +1,74 @@
 #!/usr/bin/python3
-"""unittest module"""
-
+'''Unittest for base_model'''
 import unittest
 from models.base_model import BaseModel
-import datetime
+from datetime import datetime
+import os
 
 
-class BaseModelTest(unittest.TestCase):
-    """Suite of console test"""
+class test_base_model(unittest.TestCase):
+    '''Tests BaseModel class'''
 
-    my_model = BaseModel()
+    @classmethod
+    def setUpClass(cls):
+        '''set up before every test method'''
+        cls.base1 = BaseModel()
 
-    def testBaseModel(self):
-        """Test atributes value of a BaseModel instances"""
+    @classmethod
+    def teardown(cls):
+        '''remove test instances'''
+        del cls.base1
+        try:
+            os.remove("file.json")
+        except BaseException:
+            pass
 
-        self.my_model.name = "My First Model"
-        self.my_model.my_number = "89"
-        self.my_model.save()
-        my_model_json = self.my_model.to_dict()
+    def test_docstring_test(self):
+        '''Checks for docs'''
+        for doc_fun in dir(BaseModel):
+            self.assertIsNotNone(doc_fun.__doc__)
 
-        self.assertEqual(self.my_model.name, my_model_json['name'])
-        self.assertEqual(self.my_model.my_number, my_model_json['my_number'])
-        self.assertEqual('BaseModel', my_model_json['__class__'])
+    def test_docstring_class_class(self):
+        self.assertIsNotNone(BaseModel.__doc__)
 
-    def testsaveUpdate(self):
-        """Checks if save method updates the instances update_at"""
+    def test_check_if_hasattr(self):
+        """Checks if the methods exists"""
+        self.assertTrue(hasattr(BaseModel, "__init__"))
+        self.assertTrue(hasattr(BaseModel, "__str__"))
+        self.assertTrue(hasattr(BaseModel, "save"))
+        self.assertTrue(hasattr(BaseModel, "to_dict"))
 
-        self.my_model.first_name = "Holberton"
-        self.my_model.save()
+    def test_isinstance(self):
+        self.assertIsInstance(self.base1, BaseModel)
 
-        self.assertIsInstance(self.my_model.created_at, datetime.datetime)
-        self.assertIsInstance(self.my_model.updated_at, datetime.datetime)
+    def test_save(self):
+        self.base1.save()
+        self.assertNotEqual(self.base1.created_at, self.base1.updated_at)
+        self.an = self.base1.updated_at
+        self.base1.save()
+        self.des = self.base1.updated_at
+        self.assertIsNot(self.an, self.des)
 
-        first_dic = self.my_model.to_dict()
+    def test_id_fun_test(self):
+        """ test id functionality """
+        self.assertEqual(str, type(self.base1.id))
 
-        self.my_model.first_name = "School"
-        self.my_model.save()
-        second_dic = self.my_model.to_dict()
+    def test_created_at_fun_test(self):
+        """ test created_at functionality"""
+        self.assertEqual(datetime, type(self.base1.created_at))
 
-        self.assertEqual(first_dic['created_at'], second_dic['created_at'])
-        self.assertNotEqual(first_dic['updated_at'], second_dic['updated_at'])
+    def test_updated_at_fun_test(self):
+        """ test updated_at functionality"""
+        self.assertEqual(datetime, type(self.base1.updated_at))
+
+    def test_dictionary_test(self):
+        '''Tests to_dict method'''
+        test_dict = self.base1.to_dict()
+        self.assertEqual(type(test_dict), dict)
+        self.assertTrue('to_dict' in dir(self.base1))
+        self.assertIsInstance(test_dict["created_at"], str)
+        self.assertIsInstance(test_dict["updated_at"], str)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
